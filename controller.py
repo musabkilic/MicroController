@@ -1,26 +1,25 @@
 import microbit
 import time
-from pykeyboard import PyKeyboard
+from pynput.keyboard import Key, Controller
 
-#Function for Changing a Key 
-def changeKeyState(key, value, key_name):
+#Function for Changing a Key
+def changeKeyState(key, value):
 	global keyboard_keys
 
 	#Change Only Neccessary
-	if value!=keyboard_keys[key_name]:
+	if value!=keyboard_keys.get(key, False):
 		if value:
-			keyboard.press_key(key)
+			keyboard.press(key)
 		else:
-			keyboard.release_key(key)
+			keyboard.release(key)
 
-	keyboard_keys[key_name] = value
+	keyboard_keys[key] = value
 
 #Specify Keyboard
-keyboard = PyKeyboard()
+keyboard = Controller()
 #Set Accelerometer Values
 previous_values = microbit.accelerometer.get_values()
-#Set Keyboard Keys
-keyboard_keys = {"L":False,"R":False,"F":False,"S":False}
+keyboard_keys = {}
 #Set Images
 stable = microbit.Image("00000:00000:99999:00000:00000")
 images = {"N": microbit.Image.ARROW_N,
@@ -28,6 +27,7 @@ images = {"N": microbit.Image.ARROW_N,
 		  "NW": microbit.Image.ARROW_NW,
 		  "E": microbit.Image.ARROW_E,
 		  "W": microbit.Image.ARROW_W,
+		  "S": microbit.Image.ARROW_S,
 		  "": stable}
 
 #Wait for User to Press a Button
@@ -37,8 +37,8 @@ while 1:
 	time.sleep(0.5)
 	microbit.display.clear()
 
-	#Start the Program if a Button is Pressed
-	if microbit.button_a.was_pressed() or microbit.button_b.was_pressed():
+	#Start the Program if a Button A is Pressed
+	if microbit.button_a.was_pressed():
 		break
 	time.sleep(0.5)
 
@@ -52,10 +52,10 @@ while 1:
 	motion = sum(map(lambda x:abs(accelerometer_values[x]-previous_values[x]),range(3)))/3
 
 	#Change Direction
-	changeKeyState(keyboard.up_key,y>400,"F")
-	changeKeyState(keyboard.right_key,x>60,"R")
-	changeKeyState(keyboard.left_key,x<-60,"L")
-	changeKeyState(keyboard.shift_key,motion>500,"S")
+	changeKeyState(Key.up, y>400)
+	changeKeyState(Key.right, x>60)
+	changeKeyState(Key.left, x<-60)
+	changeKeyState(Key.down, y<-400)
 
 	#Set Direction to Show
 	direction = ""
@@ -63,6 +63,8 @@ while 1:
 		direction += "N"
 	if x>60:
 		direction += "E"
+	elif y<-400:
+		direction += "S"
 	elif x<-60:
 		direction += "W"
 
@@ -70,3 +72,7 @@ while 1:
 	microbit.display.show(images[direction])
 	#Set Current Accelerometer Values to Previous
 	previous_values = accelerometer_values
+
+	if microbit.button_b.was_pressed():
+		microbit.display.scroll('Breaked!')
+		break
