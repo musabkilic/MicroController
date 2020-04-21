@@ -4,40 +4,32 @@
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/musabkilic/microbike.svg"/>
-	<img src="https://img.shields.io/github/stars/musabkilic/microbike.svg"/>
-	<a href="https://github.com/carlosperate/awesome-microbit"><img src="https://awesome.re/mentioned-badge.svg"/></a>
+	</a>
 </p>
+
+
+*This project has been forked from [Musab Kılıç](https://github.com/musabkilic).*
+
+**I will try to develop this project as much as I can.**
+
+***After this [Micro:bike project](https://github.com/musabkilic/MicroBike) was written with help..***
 
 Turn your micro:bit into a Game Controller.
 
-- _[10 December 2017] :uk: Github Page: [https://github.com/musabkilic/MicroBike/](https://github.com/musabkilic/MicroBike/)_  
-- _[27 December 2018] :uk: Project Page on My Website: [https://musab.me/projects/MicroBike](https://musab.me/projects/MicroBike)_  
 
-**The websites listed under are _NOT_ controlled by me and I'm _NOT_ responsible for the changes that may happen in the future**
-
-- _[14 November 2018] :uk: Featured on official Micro:Bit Ideas page: [https://microbit.org/ideas/](https://microbit.org/ideas/)_   
-- _[9 January 2019] :tr: SAMM Blog Tarafından Türkçe Yazı: [https://blog.samm.com/microbit-projeleri-microbike/](https://blog.samm.com/microbit-projeleri-microbike/)_   
-- _[19 January 2019]: :uk: Featured on "10 Amazing micro:bit Projects", Micro:Mag Issue 3: [https://micromag.cc/issuethree/](https://micromag.cc/issuethree/)_   
-- _[7 February 2019] :poland: Featured on RoboCap, Warsztaty programowania i robotyki dla dzieci: [https://robocap.org/microbit/index01.html#/1](https://robocap.org/microbit/index01.html#/1)_   
-- _[20 March 2019] :uk: Featured on "16 Top BBC micro:bit Projects": [https://www.itpro.co.uk/desktop-hardware/26289/13-top-bbc-micro-bit-projects](https://www.itpro.co.uk/desktop-hardware/26289/13-top-bbc-micro-bit-projects)_    
-- _[25 March 2019] :uk: Featured on "Meet the BBC micro:bit": [https://www.diogomakes.com/blog/meet-the-bbc-microbit/](https://www.diogomakes.com/blog/meet-the-bbc-microbit/)_
-- _[13 April 2019] :cn: Chinese Translation by 江宗諭: [https://vmaker.tw/archives/32557](https://vmaker.tw/archives/32557)_
-- _[16 April 2019] :de: CalliMoto, a MicroBike Inspired Controller: [https://www.hackster.io/thorsten-kimmeskamp/callimoto-50a10d](https://www.hackster.io/thorsten-kimmeskamp/callimoto-50a10d)_  
-- _[18 April 2019] :estonia: Tallinna Polütehnikum, Introduction to Micro:Bit: [http://nelus.tpt.edu.ee/txt/J4i8X-microbit.txt](http://nelus.tpt.edu.ee/txt/J4i8X-microbit.txt)_
-- _[10 December 2019] :uk: Featured on "Top 25 Micro:Bit Projects You Must Try 2019!": [https://www.seeedstudio.com/blog/2019/12/10/top-25-microbit-projects-for-beginners-2019/](https://www.seeedstudio.com/blog/2019/12/10/top-25-microbit-projects-for-beginners-2019/)_
 
 ![gif](https://github.com/musabkilic/MicroBike/raw/master/res/microbike.gif)
 
 ## What is it?
 
 This project allows you to control PC games using a [BBC micro:bit](https://microbit.org/) as the game controller. To get the code to work, you'll need a couple of extra Python modules installed onto your local machine:
-- [PyUserInput](https://github.com/SavinaRoja/PyUserInput), "a module for cross-platform control of the mouse and keyboard in python"
+- [Pynput](https://pythonhosted.org/pynput/), "a module for cross-platform control of the mouse and keyboard in python"
 - [David Whale](https://github.com/whaleygeek)'s [bitio library](https://github.com/whaleygeek/bitio), which "allows you to run code in Python on a PC/Mac/Linux/Raspberry Pi and interact directly with the micro:bit"
 
 ## Installation
 ### Setting up your PC
 You'll need to set up the device on which the game will be played first.
-1. If you don't already have Python, [download Python 2.7 from this link](https://www.python.org/download/releases/2.7/)
+1. If you don't already have Python, [download Python 3.7 from this link](https://www.python.org/downloads/release/python-370/)
 2. If you don't already have Pip, [install it by following these instructions](https://pip.pypa.io/en/stable/installing/). Pip is a "package manager" for Python, and makes getting set up with Python packages really easy.
 3. Get the MicroBike folder and install the required modules.
 
@@ -45,7 +37,7 @@ You'll need to set up the device on which the game will be played first.
 
 Open a new [command line window](https://www.computerhope.com/jargon/c/commandi.htm). This is called 'Terminal' on a Mac, 'Command Prompt' on Windows, and 'shell' or 'terminal' on Linux. Type the following:
 
-   ```git clone https://github.com/musabkilic/MicroBike```
+   ```git clone https://github.com/codermyagiz/MicroBike```
    
 This gets the latest MicroBike code from this [Git repository](https://help.github.com/articles/about-repositories/).
    
@@ -68,7 +60,7 @@ See [this](https://github.com/whaleygeek/bitio#getting-started) to set up [David
 ### Setting up your micro:bit
 Connect your micro:bit to your computer. Get the latest [bitio.hex](https://github.com/whaleygeek/bitio/raw/master/bitio.hex) from the bitio repository, and [drag this hex file to your micro:bit to 'flash' it to the device](https://microbit.org/guide/hardware/usb/).
 
-If you're on Windows, you'll also need to [install the Windows serial driver](https://os.mbed.com/docs/v5.9/tutorials/windows-serial-driver.html) on your computer.
+If you're on Windows, you'll also need to [install the Windows serial driver](https://os.mbed.com/handbook/Windows-serial-configuration) on your computer.
 
 **Done!** You can use MicroBike by typing ```python controller.py``` in your computer's command line.
 
@@ -79,7 +71,7 @@ Let's review the code for [controller.py](https://github.com/musabkilic/MicroBik
 ```python
 import microbit
 import time
-from pykeyboard import PyKeyboard
+from pynput.keyboard import Key, Controller
 ```
 
 We need to import the modules to use them later. We will use 3 modules; microbit module for controlling and reading data from the micro:bit, time module for waiting for a specific time step and pykeyboard module to control the keyboard(and the game of course).
@@ -103,11 +95,10 @@ def changeKeyState(key, value, key_name):
 
 ```python
 #Specify Keyboard
-keyboard = PyKeyboard()
+keyboard = Controller()
 #Set Accelerometer Values
 previous_values = microbit.accelerometer.get_values()
-#Set Keyboard Keys
-keyboard_keys = {"L":False,"R":False,"F":False,"S":False}
+keyboard_keys = {}
 #Set Images
 stable = microbit.Image("00000:00000:99999:00000:00000")
 images = {"N": microbit.Image.ARROW_N,
@@ -115,6 +106,7 @@ images = {"N": microbit.Image.ARROW_N,
 		  "NW": microbit.Image.ARROW_NW,
 		  "E": microbit.Image.ARROW_E,
 		  "W": microbit.Image.ARROW_W,
+		  "S": microbit.Image.ARROW_S,
 		  "": stable}
 ```
 
@@ -128,8 +120,8 @@ while 1:
 	time.sleep(0.5)
 	microbit.display.clear()
 
-	#Start the Program if a Button is Pressed
-	if microbit.button_a.was_pressed() or microbit.button_b.was_pressed():
+	#Start the Program if a Button A is Pressed
+	if microbit.button_a.was_pressed():
 		break
 	time.sleep(0.5)
 ```
@@ -151,10 +143,10 @@ This is the main loop. We will start by getting required values and calculating 
 
 ```python
 	#Change Direction
-	changeKeyState(keyboard.up_key,y>400,"F")
-	changeKeyState(keyboard.right_key,x>60,"R")
-	changeKeyState(keyboard.left_key,x<-60,"L")
-	changeKeyState(keyboard.shift_key,motion>500,"S")
+	changeKeyState(Key.up, y>400)
+	changeKeyState(Key.right, x>60)
+	changeKeyState(Key.left, x<-60)
+	changeKeyState(Key.down, y<-400)
 
 	#Set Direction to Show
 	direction = ""
@@ -162,20 +154,24 @@ This is the main loop. We will start by getting required values and calculating 
 		direction += "N"
 	if x>60:
 		direction += "E"
+	elif y<-400:
+		direction += "S"
 	elif x<-60:
 		direction += "W"
 
 	#Show the Direction
 	microbit.display.show(images[direction])
 	#Set Current Accelerometer Values to Previous
-  previous_values = accelerometer_values
+	previous_values = accelerometer_values
+
+	if microbit.button_b.was_pressed():
+		microbit.display.scroll('Breaked!')
+		break
 ```
 Then we will use the information we get before to control the game. Keyboard keys will trigger when the microbit turns right or left higher than a specific value.
 
 We will use same information for changing the direction on the microbit.
 
-<p align="center">
-	Musab Kılıç<br/>
-	@musabkilic & @musabkilic0<br/>
-	<a href="https://github.com/musabkilic/MicroBike/blob/master/LICENSE">Licensed under the GNU General Public License v3.0</a>
-</p>
+[Click here to get to the original of this project.](https://github.com/musabkilic/MicroBike)
+
+Thank You, Musab Kılıc.
